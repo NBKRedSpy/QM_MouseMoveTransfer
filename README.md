@@ -4,7 +4,7 @@
 
 ![Move demo](media/MoveDemo.gif)
 
-When holding the control key and moving over items in inventory, this mod will move any items that are under the cursor as the user moves the mouse.
+Holding control while moving the mouse over items will cause those items to be moved.
 This allows the user to quickly move items without having to click each individual item.
 
 # Configuration
