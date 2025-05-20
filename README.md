@@ -61,6 +61,9 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_MouseMoveT
 Thanks to Discord users Kashmyrr and Raigir for the mod idea.
 
 # Change Log
+## 1.2.1
+* Fix for the audio incorrectly being muted too much.
+
 ## 1.2.0
 * Upgraded the activation keys to key chords.
 * Added the option to not disable the transfer sound.

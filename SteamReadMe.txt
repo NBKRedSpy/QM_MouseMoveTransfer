@@ -76,6 +76,11 @@ Thanks to Discord users Kashmyrr and Raigir for the mod idea.
 
 [h1]Change Log[/h1]
 
+[h2]1.2.1[/h2]
+[list]
+[*]Fix for the audio incorrectly being muted too much.
+[/list]
+
 [h2]1.2.0[/h2]
 [list]
 [*]Upgraded the activation keys to key chords.

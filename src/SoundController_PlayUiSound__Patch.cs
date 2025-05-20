@@ -16,7 +16,7 @@ namespace MouseMoveTransfer
         new Type[] { typeof(AudioClip), typeof(bool), typeof(float) })]
     public static class SoundController_PlayUiSound__Patch
     {
-        public static bool DisableSound = true;
+        public static bool DisableSound = false;
 
         public static bool Prepare()
         {
