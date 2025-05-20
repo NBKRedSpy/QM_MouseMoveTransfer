@@ -11,9 +11,27 @@ This allows the user to quickly move items without having to click each individu
 
 The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\MouseMoveTransfer\config.json`.
 
-|Name|Default|Description|
-|--|--|--|
-|ModifierKey|LeftControl|The key to hold while the mouse is held down to activate the move.  Can be any key, but it is recommended to use LeftControl, RightControl, LeftAlt, or RightAlt|
+The mouse and keys to activate the mouse move are set in the "Keys" area.
+A "chord" is one or more keys and/or mouse buttons that have to be held down at the same to to invoke the move.
+There can be more than one "chord" configured.
+
+For example, adding the middle mouse button, would be adding a new Chord with Mouse2 as the value.  
+Mouse0 is left button, Mouse1 right, etc.
+
+Example of adding middle mouse button:
+```json
+//...
+    "Chords": [
+      [
+        "Mouse2"
+      ],
+//Existing entry...
+      [
+        "LeftControl",
+        "Mouse0"
+      ],
+//...
+```
 
 ## Key List
 The list of valid keyboard keys can be found  at the bottom of https://docs.unity3d.com/ScriptReference/KeyCode.html
@@ -21,7 +39,7 @@ Beware that numbers 0-9 are Alpha0 - Alpha9.  Most of the other keys are as expe
 Use "None" to not bind the key.
 
 
-# Support
+# Buy Me a Coffee
 If you enjoy my mods and want to buy me a coffee, check out my [Ko-Fi](https://ko-fi.com/nbkredspy71915) page.
 Thanks!
 

@@ -7,17 +7,30 @@ using System.Threading.Tasks;
 using MGSC;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
 namespace MouseMoveTransfer
 {
     public class ModConfig
     {
-        /// <summary>
-        /// The key to hold while holding the mouse button to execute the move.
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]    
-        public KeyCode ModifierKey = KeyCode.LeftControl;
+        ///// <summary>
+        ///// The key to hold while holding the mouse button to execute the move.
+        ///// </summary>
+        //[JsonConverter(typeof(StringEnumConverter))]    
+        //public KeyCode ModifierKey = KeyCode.LeftControl;
+
+        ///// <summary>
+        ///// If true, will allow the user to also use the middle mouse button to transfer.
+        ///// </summary>
+        //public bool UseMiddleMouseButton = true;
+
+        public KeyChordHandler Keys = new KeyChordHandler(
+            new List<List<KeyCode>>()
+            {
+                new List<KeyCode>() { KeyCode.LeftControl, KeyCode.Mouse0 },
+                new List<KeyCode>() { KeyCode.RightControl, KeyCode.Mouse0 },
+            });
 
         public static ModConfig LoadConfig(string configPath)
         {
@@ -26,8 +39,15 @@ namespace MouseMoveTransfer
             JsonSerializerSettings serializerSettings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented,
+                ObjectCreationHandling = ObjectCreationHandling.Replace
+            };
+            
+            StringEnumConverter stringEnumConverter = new StringEnumConverter()
+            {
+                AllowIntegerValues = true
             };
 
+            serializerSettings.Converters.Add(stringEnumConverter);
             if (File.Exists(configPath))
             {
                 try

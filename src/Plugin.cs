@@ -20,13 +20,16 @@ namespace MouseMoveTransfer
 
         public static Logger Logger = new Logger();
 
+        public static KeyChordHandler KeyChordHandler;
+
         [Hook(ModHookType.AfterConfigsLoaded)]
         public static void AfterConfig(IModContext context)
         {
-
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
 
             Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
+
+            KeyChordHandler = Config.Keys;
 
             new Harmony("NBKRedSpy_" + ConfigDirectories.ModAssemblyName).PatchAll();
         }

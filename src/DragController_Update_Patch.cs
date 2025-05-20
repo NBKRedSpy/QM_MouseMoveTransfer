@@ -25,11 +25,11 @@ namespace MouseMoveTransfer
             //  It removes the delays and changes it to a Mouse button hold check.  Otherwise identical.
 
             //I preferred this over a transpile.
-
             //The base game ignores the click + left control.  It looks for mouse up.
             //  The item will be gone by then, so there should be no conflict.
-            if (Input.GetMouseButton(0) && InputHelper.GetKey(Plugin.Config.ModifierKey))
+            if (Plugin.KeyChordHandler.IsPressed())
             {
+                
                 if (__instance.IsDragging)
                 {
                     __instance.EndDrag();
