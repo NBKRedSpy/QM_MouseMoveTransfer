@@ -14,16 +14,11 @@ namespace MouseMoveTransfer
 {
     public class ModConfig
     {
-        ///// <summary>
-        ///// The key to hold while holding the mouse button to execute the move.
-        ///// </summary>
-        //[JsonConverter(typeof(StringEnumConverter))]    
-        //public KeyCode ModifierKey = KeyCode.LeftControl;
 
-        ///// <summary>
-        ///// If true, will allow the user to also use the middle mouse button to transfer.
-        ///// </summary>
-        //public bool UseMiddleMouseButton = true;
+        /// <summary>
+        /// If true, will silence the sound that the item movement makes.
+        /// </summary>
+        public bool DisableMoveSound { get; set; } = false;
 
         public KeyChordHandler Keys = new KeyChordHandler(
             new List<List<KeyCode>>()

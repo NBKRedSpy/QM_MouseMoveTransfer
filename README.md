@@ -11,6 +11,16 @@ This allows the user to quickly move items without having to click each individu
 
 The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\MouseMoveTransfer\config.json`.
 
+## Disable Sound
+By default the transfer sound is disabled, but can be re-enabled to the game's default:
+
+
+|Name|Default|Description|
+|--|--|--|
+|DisableMoveSound|true|If true, items transferred will not make a sound|
+
+## Keys and/or Mouse Buttons
+
 The mouse and keys to activate the mouse move are set in the "Keys" area.
 A "chord" is one or more keys and/or mouse buttons that have to be held down at the same to to invoke the move.
 There can be more than one "chord" configured.
@@ -51,6 +61,9 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_MouseMoveT
 Thanks to Discord users Kashmyrr and Raigir for the mod idea.
 
 # Change Log
+## 1.2.0
+* Upgraded the activation keys to key chords.
+* Added the option to not disable the transfer sound.
 
 ## 1.1.0
-Added config for modifier key.
+* Added config for modifier key.

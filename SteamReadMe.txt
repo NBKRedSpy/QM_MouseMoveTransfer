@@ -9,6 +9,30 @@ This allows the user to quickly move items without having to click each individu
 
 The configuration file will be created on the first game run and can be found at [i]%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\MouseMoveTransfer\config.json[/i].
 
+[h2]Disable Sound[/h2]
+
+By default the transfer sound is disabled, but can be re-enabled to the game's default:
+[table]
+[tr]
+[td]Name
+[/td]
+[td]Default
+[/td]
+[td]Description
+[/td]
+[/tr]
+[tr]
+[td]DisableMoveSound
+[/td]
+[td]true
+[/td]
+[td]If true, items transferred will not make a sound
+[/td]
+[/tr]
+[/table]
+
+[h2]Keys and/or Mouse Buttons[/h2]
+
 The mouse and keys to activate the mouse move are set in the "Keys" area.
 A "chord" is one or more keys and/or mouse buttons that have to be held down at the same to to invoke the move.
 There can be more than one "chord" configured.
@@ -52,6 +76,13 @@ Thanks to Discord users Kashmyrr and Raigir for the mod idea.
 
 [h1]Change Log[/h1]
 
-[h2]1.1.0[/h2]
+[h2]1.2.0[/h2]
+[list]
+[*]Upgraded the activation keys to key chords.
+[*]Added the option to not disable the transfer sound.
+[/list]
 
-Added config for modifier key.
+[h2]1.1.0[/h2]
+[list]
+[*]Added config for modifier key.
+[/list]

@@ -14,10 +14,14 @@ namespace MouseMoveTransfer
     /// </summary>
     [HarmonyPatch(typeof(SoundController), nameof(SoundController.PlayUiSound),
         new Type[] { typeof(AudioClip), typeof(bool), typeof(float) })]
-
     public static class SoundController_PlayUiSound__Patch
     {
-        public static bool DisableSound = false;
+        public static bool DisableSound = true;
+
+        public static bool Prepare()
+        {
+            return Plugin.Config.DisableMoveSound;
+        }
 
         public static bool Prefix(MainMenuScreen __instance)
         {
