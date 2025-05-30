@@ -7,6 +7,9 @@
 Holding control while moving the mouse over items will cause those items to be moved.
 This allows the user to quickly move items without having to click each individual item.
 
+Can also move an item to the recycler tab by holding down R instead.
+Keys can be configure.
+
 # Configuration
 
 The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\MouseMoveTransfer\config.json`.
@@ -18,6 +21,8 @@ By default the transfer sound is disabled, but can be re-enabled to the game's d
 |Name|Default|Description|
 |--|--|--|
 |DisableMoveSound|true|If true, items transferred will not make a sound|
+|Keys|Ctrl + Left mouse button|The key or keys to hold down to transfer the hovered item. See the [Keys and/or Mouse Buttons](#keys-andor-mouse-buttons) 
+|RecyclerKey|R|The key or keys to hold down to move the hovered item to the recycler. See the [Keys and/or Mouse Buttons](#keys-andor-mouse-buttons) section below for format.|
 
 ## Keys and/or Mouse Buttons
 
@@ -61,6 +66,9 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_MouseMoveT
 Thanks to Discord users Kashmyrr and Raigir for the mod idea.
 
 # Change Log
+## 1.3.0
+* Added the "move to recycler" functionality.
+
 ## 1.2.1
 * Fix for the audio incorrectly being muted too much.
 
