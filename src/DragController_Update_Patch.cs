@@ -27,7 +27,7 @@ namespace MouseMoveTransfer
             //I preferred this over a transpile.
             //The base game ignores the click + left control.  It looks for mouse up.
             //  The item will be gone by then, so there should be no conflict.
-            if (Plugin.KeyChordHandler.IsPressed())
+            if (Plugin.Config.Keys.IsPressed())
             {
                 
                 if (__instance.IsDragging)
@@ -45,7 +45,6 @@ namespace MouseMoveTransfer
 
                         SoundController_PlayUiSound__Patch.DisableSound = false;
                     }
-
                     __instance._clickTimer.Pause();
                 }
             }

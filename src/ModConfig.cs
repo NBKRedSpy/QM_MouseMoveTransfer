@@ -20,11 +20,23 @@ namespace MouseMoveTransfer
         /// </summary>
         public bool DisableMoveSound { get; set; } = false;
 
+        /// <summary>
+        /// The "keys" to use to trigger the mouse move transfer functionality.
+        /// </summary>
         public KeyChordHandler Keys = new KeyChordHandler(
             new List<List<KeyCode>>()
             {
                 new List<KeyCode>() { KeyCode.LeftControl, KeyCode.Mouse0 },
                 new List<KeyCode>() { KeyCode.RightControl, KeyCode.Mouse0 },
+            });
+
+        /// <summary>
+        /// The hotkey to move items to the recycler.
+        /// </summary>
+        public KeyChordHandler RecyclerKey= new KeyChordHandler(
+            new List<List<KeyCode>>()
+            {
+                new List<KeyCode>() { KeyCode.R},
             });
 
         public static ModConfig LoadConfig(string configPath)
