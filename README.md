@@ -10,6 +10,8 @@ This allows the user to quickly move items without having to click each individu
 Can also move an item to the recycler tab by holding down R instead.
 Keys can be configure.
 
+The recycler move functionality was comissioned by The Jabberwocky.
+
 # Configuration
 
 The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\MouseMoveTransfer\config.json`.
