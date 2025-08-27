@@ -25,7 +25,7 @@ namespace MouseMoveTransfer
         }
 
         /// <summary>
-        /// Returns ture if one or more chords are pressed.
+        /// Returns true if one or more chords are pressed.
         /// </summary>
         /// <returns></returns>
         public bool IsPressed()

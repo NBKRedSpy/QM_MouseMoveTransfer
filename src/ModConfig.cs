@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MGSC;
+using MouseMoveTransfer.Mcm;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -12,7 +13,7 @@ using UnityEngine;
 
 namespace MouseMoveTransfer
 {
-    public class ModConfig
+    public class ModConfig : ISave
     {
 
         /// <summary>
@@ -39,32 +40,34 @@ namespace MouseMoveTransfer
                 new List<KeyCode>() { KeyCode.R},
             });
 
+        [JsonIgnore]
+        private static JsonSerializerSettings SerializerSettings = new JsonSerializerSettings()
+        {
+            Formatting = Formatting.Indented,
+            ObjectCreationHandling = ObjectCreationHandling.Replace
+        };
+
         public static ModConfig LoadConfig(string configPath)
         {
             ModConfig config;
 
-            JsonSerializerSettings serializerSettings = new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented,
-                ObjectCreationHandling = ObjectCreationHandling.Replace
-            };
             
             StringEnumConverter stringEnumConverter = new StringEnumConverter()
             {
                 AllowIntegerValues = true
             };
 
-            serializerSettings.Converters.Add(stringEnumConverter);
+            SerializerSettings.Converters.Add(stringEnumConverter);
             if (File.Exists(configPath))
             {
                 try
                 {
                     string sourceJson = File.ReadAllText(configPath);
 
-                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, serializerSettings);
+                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, SerializerSettings);
 
                     //Add any new elements that have been added since the last mod version the user had.
-                    string upgradeConfig = JsonConvert.SerializeObject(config, serializerSettings);
+                    string upgradeConfig = JsonConvert.SerializeObject(config, SerializerSettings);
 
                     if (upgradeConfig != sourceJson)
                     {
@@ -73,13 +76,11 @@ namespace MouseMoveTransfer
                         File.WriteAllText(configPath, upgradeConfig);
                     }
 
-
                     return config;
                 }
                 catch (Exception ex)
                 {
-                    Plugin.Logger.LogError("Error parsing configuration.  Ignoring config file and using defaults");
-                    Plugin.Logger.LogException(ex);
+                    Plugin.Logger.LogError(ex, "Error parsing configuration.  Ignoring config file and using defaults");
 
                     //Not overwriting in case the user just made a typo.
                     config = new ModConfig();
@@ -89,13 +90,16 @@ namespace MouseMoveTransfer
             else
             {
                 config = new ModConfig();
-                
-                string json = JsonConvert.SerializeObject(config, serializerSettings);
-                File.WriteAllText(configPath, json);
+                config.Save();
 
                 return config;
             }
+        }
 
+        public void Save()
+        {
+            string json = JsonConvert.SerializeObject(this, SerializerSettings);
+            File.WriteAllText(Plugin.ConfigDirectories.ConfigPath, json);
 
         }
     }

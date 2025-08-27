@@ -13,6 +13,7 @@ Keys can be configure.
 The recycler move functionality was commissioned by The Jabberwocky.
 
 # Configuration
+This mod supports MCM. The settings can be configured in the Mods screen, or directly in the config file.
 
 The configuration file will be created on the first game run and can be found at `%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\MouseMoveTransfer\config.json`.
 
@@ -64,10 +65,13 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_MouseMoveTransfer
 
 # Credits
-
-Thanks to Discord users Kashmyrr and Raigir for the mod idea.
+* Special thanks to Crynano for his excellent Mod Configuration Menu. 
+* Thanks to Discord users Kashmyrr and Raigir for the mod idea.
 
 # Change Log
+## 1.4.0
+* MCM integration
+
 ## 1.3.0
 * Added the "move to recycler" functionality.
 

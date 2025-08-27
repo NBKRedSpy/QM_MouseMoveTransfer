@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using MGSC;
+using MouseMoveTransfer.Mcm;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +22,7 @@ namespace MouseMoveTransfer
         public static Logger Logger = new Logger();
 
         public static State State { get; private set; }
+        private static McmConfiguration McmConfiguration { get; set; }
 
         [Hook(ModHookType.AfterConfigsLoaded)]
         public static void AfterConfig(IModContext context)
@@ -31,6 +33,9 @@ namespace MouseMoveTransfer
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
 
             Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
+
+            McmConfiguration = new McmConfiguration(Config);
+            McmConfiguration.TryConfigure();
 
             new Harmony("NBKRedSpy_" + ConfigDirectories.ModAssemblyName).PatchAll();
         }
